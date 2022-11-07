@@ -1,0 +1,60 @@
+name: base_bloc_project
+description: A new Flutter package project.
+version: 0.0.1
+homepage: https://github.com/felangel/base_bloc_project
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+  flutter: ">=1.17.0"
+
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  equatable: 2.0.5
+  flutter_bloc: ^8.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+
+fonts:
+  - family: FontAwesomeSolid
+    fonts:
+      - asset: assets/fonts/icons/fa-solid-900.ttf
+        weight: 900
+  - family: FontAwesomeSharpSolid
+    fonts:
+      - asset: assets/fonts/icons/fa-sharp-solid-900.ttf
+        weight: 900
+  - family: FontAwesomeDuoTone
+    fonts:
+      - asset: assets/fonts/icons/fa-duotone-900.ttf
+        weight: 900
+  - family: FontAwesomeBrand
+    fonts:
+      - asset: assets/fonts/icons/fa-brands-400.ttf
+        weight: 400
+  - family: FontAwesomeRegular
+    fonts:
+      - asset: assets/fonts/icons/fa-regular-400.ttf
+        weight: 400
+  - family: FontAwesomeLight
+    fonts:
+      - asset: assets/fonts/icons/fa-light-300.ttf
+        weight: 300
+  - family: FontAwesomeThin
+    fonts:
+      - asset: assets/fonts/icons/fa-thin-100.ttf
+        weight: 100
