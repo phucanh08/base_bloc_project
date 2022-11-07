@@ -15,6 +15,6 @@ class BlocBuilder<B extends flutter_bloc.StateStreamable<List<Id>>, Id>
         builder: builder,
         buildWhen: buildWhen ??
             (previous, current) =>
-                previous != current && (id == null || current.contains(id)),
+                current.isEmpty || (previous != current && (id == null || current.contains(id))),
       );
 }
