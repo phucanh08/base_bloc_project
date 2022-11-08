@@ -1,0 +1,1 @@
+export 'src/fa_icon.dart';
