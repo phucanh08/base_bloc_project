@@ -1,10 +1,8 @@
 import 'dart:convert';
-
+import 'package:base_bloc_project/base_bloc_project.dart';
 import 'package:flutter/services.dart';
 
-import '../../base_bloc_project.dart';
-
-typedef Decoder<T> = T Function();
+typedef Decoder<T> = T Function(Json);
 
 abstract class BaseConnect {
   final String baseUrl;
@@ -12,53 +10,59 @@ abstract class BaseConnect {
 
   BaseConnect(this.baseUrl, this.authorization);
 
-  Future<Response> head<T>(String suffix,
+  Future<Response<T>> head<T>(String suffix,
       {Map<String, String>? query,
       Map<String, String> headers = const {},
       Object? body,
       Decoder<T>? decoder,
       Encoding? encoding}) {
-    return _sendUnStreamed('HEAD', suffix, query, headers, body, encoding);
+    return _sendUnStreamed(
+        'HEAD', suffix, query, headers, body, encoding, decoder);
   }
 
-  Future<Response> get(String suffix,
+  Future<Response<T>> get<T>(String suffix,
       {Map<String, String>? query,
       Map<String, String> headers = const {},
       Object? body,
+      Decoder<T>? decoder,
       Encoding? encoding}) {
-    return _sendUnStreamed('GET', suffix, query, headers, body, encoding);
+    return _sendUnStreamed('GET', suffix, query, headers, body, encoding, decoder);
   }
 
-  Future<Response> post(String suffix,
+  Future<Response<T>> post<T>(String suffix,
       {Map<String, String>? query,
       Map<String, String> headers = const {},
       Object? body,
+      Decoder<T>? decoder,
       Encoding? encoding}) {
-    return _sendUnStreamed('POST', suffix, query, headers, body, encoding);
+    return _sendUnStreamed('POST', suffix, query, headers, body, encoding, decoder);
   }
 
-  Future<Response> put(String suffix,
+  Future<Response<T>> put<T>(String suffix,
       {Map<String, String>? query,
       Map<String, String> headers = const {},
       Object? body,
+      Decoder<T>? decoder,
       Encoding? encoding}) {
-    return _sendUnStreamed('PUT', suffix, query, headers, body, encoding);
+    return _sendUnStreamed('PUT', suffix, query, headers, body, encoding, decoder);
   }
 
-  Future<Response> patch(String suffix,
+  Future<Response<T>> patch<T>(String suffix,
       {Map<String, String>? query,
       Map<String, String> headers = const {},
       Object? body,
+      Decoder<T>? decoder,
       Encoding? encoding}) {
-    return _sendUnStreamed('PATCH', suffix, query, headers, body, encoding);
+    return _sendUnStreamed('PATCH', suffix, query, headers, body, encoding, decoder);
   }
 
-  Future<Response> delete(String suffix,
+  Future<Response<T>> delete<T>(String suffix,
       {Map<String, String>? query,
       Map<String, String> headers = const {},
       Object? body,
+      Decoder<T>? decoder,
       Encoding? encoding}) {
-    return _sendUnStreamed('DELETE', suffix, query, headers, body, encoding);
+    return _sendUnStreamed('DELETE', suffix, query, headers, body, encoding, decoder);
   }
 
   Future<String> read(String suffix,
@@ -74,7 +78,7 @@ abstract class BaseConnect {
       body: body,
     );
     _checkResponseSuccess(url, response);
-    return response.body;
+    return response.bodyString;
   }
 
   Future<Uint8List> readBytes(String suffix,
@@ -103,9 +107,9 @@ abstract class BaseConnect {
   Future<StreamedResponse> send(BaseRequest request);
 
   /// Sends a non-streaming [Request] and returns a non-streaming [Response].
-  Future<Response> _sendUnStreamed(String method, String suffix,
+  Future<Response<T>> _sendUnStreamed<T>(String method, String suffix,
       Map<String, String>? query, Map<String, String>? headers,
-      [Object? body, Encoding? encoding]) async {
+      [Object? body, Encoding? encoding, Decoder<T>? decoder]) async {
     final url = Uri.https(baseUrl, suffix, query);
     var request = Request(method, url);
 
@@ -123,7 +127,7 @@ abstract class BaseConnect {
       }
     }
 
-    return Response.fromStream(await send(request));
+    return Response.fromStream(await send(request), decoder: decoder);
   }
 
   /// Throws an error if [response] is not successful.
@@ -138,5 +142,3 @@ abstract class BaseConnect {
 
   void close() {}
 }
-
-
