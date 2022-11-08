@@ -1,5 +1,6 @@
 import 'package:base_bloc_project/base_bloc_project.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:example/commons/route_manager/routes.dart';
+import 'package:flutter/widgets.dart';
 
 import 'index.dart';
 
@@ -10,7 +11,11 @@ class Bloc extends BlocBase<Event, List<Ids>> {
     on<Increment>((event, emit) {
       model.count += event.num;
       emit([Ids.count]);
-      Get.back();
+      if(model.count == 10) {
+        Get.toNamed(Routes.countPage, arguments: "123456");
+
+        // Navigator.of(context).pushNamed(Routes.countPage, arguments: "123456");
+      }
     });
     on<Decrease>((event, emit) {
       model.count2--;

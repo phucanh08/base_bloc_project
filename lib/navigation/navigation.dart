@@ -1,0 +1,1 @@
+export 'src/navigator_extension.dart';

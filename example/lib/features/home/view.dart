@@ -35,7 +35,7 @@ class View extends StatelessWidget {
     );
   }
 
-  AppBar get appbar => AppBar(title: const Text('Count'),);
+  AppBar get appbar => AppBar(title: const Text('Home'),);
 
   Widget textBuilder() {
     return BlocBuilder<Bloc, Ids>(
