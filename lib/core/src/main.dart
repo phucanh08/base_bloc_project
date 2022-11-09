@@ -1,3 +1,5 @@
+export '../../navigation/navigation.dart';
+
 import 'interface.dart';
 
 ///Use to instead of Navigator.push, off instead of Navigator.pushReplacement,
