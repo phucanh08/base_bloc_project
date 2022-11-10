@@ -9,8 +9,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: Get.navigationKey,
-      routes: Routes.routes(context),
-      initialRoute: Routes.homePage
+      onGenerateRoute: Routes.onGenerateRoute,
+      onGenerateInitialRoutes: Routes.onGenerateInitialRoutes,
     );
   }
 }

@@ -1,1 +1,1 @@
-export 'src/navigator_extension.dart';
+export 'src/routes/index.dart';

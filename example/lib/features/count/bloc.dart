@@ -11,6 +11,7 @@ class Bloc extends BlocBase<Event, List<Ids>> {
       model.count += event.num;
       emit([Ids.count]);
       Get.back();
+      // Navigator.of(context).pop();
     });
     on<Decrease>((event, emit) {
       model.count2--;

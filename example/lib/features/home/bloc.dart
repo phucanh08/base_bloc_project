@@ -13,8 +13,6 @@ class Bloc extends BlocBase<Event, List<Ids>> {
       emit([Ids.count]);
       if(model.count == 10) {
         Get.toNamed(Routes.countPage, arguments: "123456");
-
-        // Navigator.of(context).pushNamed(Routes.countPage, arguments: "123456");
       }
     });
     on<Decrease>((event, emit) {
