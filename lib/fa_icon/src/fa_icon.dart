@@ -63,6 +63,7 @@ class FaIcon extends StatelessWidget {
           color: iconColor,
           fontSize: iconSize,
           fontFamily: type.fontFamily,
+          package: 'base_bloc_project',
           shadows: iconShadows,
         ),
       ),
