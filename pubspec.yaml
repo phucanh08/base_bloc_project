@@ -38,28 +38,21 @@ fonts:
   - family: FontAwesomeSolid
     fonts:
       - asset: assets/fonts/icons/fa-solid-900.ttf
-        weight: 900
   - family: FontAwesomeSharpSolid
     fonts:
       - asset: assets/fonts/icons/fa-sharp-solid-900.ttf
-        weight: 900
   - family: FontAwesomeDuoTone
     fonts:
       - asset: assets/fonts/icons/fa-duotone-900.ttf
-        weight: 900
   - family: FontAwesomeBrand
     fonts:
       - asset: assets/fonts/icons/fa-brands-400.ttf
-        weight: 400
   - family: FontAwesomeRegular
     fonts:
       - asset: assets/fonts/icons/fa-regular-400.ttf
-        weight: 400
   - family: FontAwesomeLight
     fonts:
       - asset: assets/fonts/icons/fa-light-300.ttf
-        weight: 300
   - family: FontAwesomeThin
     fonts:
       - asset: assets/fonts/icons/fa-thin-100.ttf
-        weight: 100
