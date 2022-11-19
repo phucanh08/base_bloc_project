@@ -22,37 +22,26 @@ dependencies:
   http: 0.13.5
   http_parser: 4.0.2
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
-
-
-fonts:
-  - family: FontAwesomeSolid
-    fonts:
-      - asset: assets/fonts/icons/fa-solid-900.ttf
-  - family: FontAwesomeSharpSolid
-    fonts:
-      - asset: assets/fonts/icons/fa-sharp-solid-900.ttf
-  - family: FontAwesomeDuoTone
-    fonts:
-      - asset: assets/fonts/icons/fa-duotone-900.ttf
-  - family: FontAwesomeBrand
-    fonts:
-      - asset: assets/fonts/icons/fa-brands-400.ttf
-  - family: FontAwesomeRegular
-    fonts:
-      - asset: assets/fonts/icons/fa-regular-400.ttf
-  - family: FontAwesomeLight
-    fonts:
-      - asset: assets/fonts/icons/fa-light-300.ttf
-  - family: FontAwesomeThin
-    fonts:
-      - asset: assets/fonts/icons/fa-thin-100.ttf
+  fonts:
+    - family: FontAwesomeSolid
+      fonts:
+        - asset: assets/fonts/icons/fa-solid-900.ttf
+    - family: FontAwesomeSharpSolid
+      fonts:
+        - asset: assets/fonts/icons/fa-sharp-solid-900.ttf
+    - family: FontAwesomeDuoTone
+      fonts:
+        - asset: assets/fonts/icons/fa-duotone-900.ttf
+    - family: FontAwesomeBrand
+      fonts:
+        - asset: assets/fonts/icons/fa-brands-400.ttf
+    - family: FontAwesomeRegular
+      fonts:
+        - asset: assets/fonts/icons/fa-regular-400.ttf
+    - family: FontAwesomeLight
+      fonts:
+        - asset: assets/fonts/icons/fa-light-300.ttf
+    - family: FontAwesomeThin
+      fonts:
+        - asset: assets/fonts/icons/fa-thin-100.ttf
