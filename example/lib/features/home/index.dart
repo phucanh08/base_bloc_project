@@ -1,7 +1,7 @@
 export 'bloc.dart';
 export 'events.dart';
 export 'ids.dart';
-export 'model.dart';
+export 'properties.dart';
 export 'repository.dart';
 export 'view.dart';
 

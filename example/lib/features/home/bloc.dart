@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'index.dart';
 
-class Bloc extends BlocBase<Event, List<Ids>> with Model{
+class Bloc extends BlocBase<Event, List<Ids>> with Properties{
   Bloc(BuildContext context) : super([], context) {
     on<Increment>((event, emit) {
       count += event.num;
