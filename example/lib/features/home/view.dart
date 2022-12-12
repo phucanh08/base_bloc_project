@@ -24,7 +24,7 @@ class View extends StatelessWidget {
             id: Ids.count,
             builder: (context, ids) {
               return Center(
-                child: Text('${bloc.model.count}'),
+                child: Text('${bloc.count}'),
               );
             },
           ),
@@ -43,7 +43,7 @@ class View extends StatelessWidget {
       builder: (context, ids) {
         final bloc = BlocProvider.of<Bloc>(context);
         return Center(
-          child: Text('${bloc.model.count2}'),
+          child: Text('${bloc.count2}'),
         );
       },
     );
