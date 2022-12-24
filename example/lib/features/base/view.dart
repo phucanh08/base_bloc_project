@@ -33,7 +33,7 @@ class View extends BlocView<Bloc> {
   }
 
   AppBar get appbar => AppBar(
-        title: const Text('Home'),
+        title: const Text('Base'),
       );
 
   Widget textBuilder() {

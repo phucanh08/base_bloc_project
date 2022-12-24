@@ -1,7 +1,8 @@
 import 'package:base_bloc_project/base_bloc_project.dart';
 import 'package:flutter/material.dart';
-import '../../features/count/index.dart' as count;
+// import '../../features/count/index.dart' as count;
 import '../../features/home/index.dart' as home;
+import '../../features/home2/index.dart' as home2;
 
 class Routes {
   static const homePage = '/home';
@@ -12,13 +13,13 @@ class Routes {
           case homePage:
             return GetPage(
                 name: homePage,
-                page: const home.View(),
+                page: home.View(),
                 transition: Transitions.fade,
                 transitionDuration: const Duration(seconds: 1));
           case countPage:
             return GetPage(
                 name: countPage,
-                page: const count.View(),
+                page: const home2.View(),
                 transition: Transitions.cupertino,
                 transitionDuration: const Duration(seconds: 1));
           default:

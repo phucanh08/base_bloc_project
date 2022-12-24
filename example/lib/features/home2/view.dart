@@ -1,30 +1,27 @@
-import 'package:base_bloc_project/base_bloc_project.dart';
-import 'package:flutter/material.dart';
 import 'index.dart';
 
-class View extends StatelessWidget {
-  const View({Key? key}) : super(key: key);
+class View extends BlocView<Bloc> {
+  const View({super.key});
+
+  @override
+  Bloc create(BuildContext context) => Bloc();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => Bloc(context),
-      child: Builder(builder: (context) => _buildPage(context)),
-    );
+    return _buildPage(context);
   }
 
   Widget _buildPage(BuildContext context) {
-    final bloc = BlocProvider.of<Bloc>(context);
     return Scaffold(
       appBar: appbar,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<Bloc, Ids>(
-            id: Ids.count,
-            builder: (context, ids) {
+          BlocBuilder<Bloc, Event, State>(
+            key: Ids.count.key,
+            builder: (context, state, child) {
               return Center(
-                child: Text('${bloc.model.count}'),
+                child: Text('${state.count}'),
               );
             },
           ),
@@ -35,15 +32,16 @@ class View extends StatelessWidget {
     );
   }
 
-  AppBar get appbar => AppBar(title: const Text('Count'),);
+  AppBar get appbar => AppBar(
+        title: const Text('Home2'),
+      );
 
   Widget textBuilder() {
-    return BlocBuilder<Bloc, Ids>(
-      id: Ids.count2,
-      builder: (context, ids) {
-        final bloc = BlocProvider.of<Bloc>(context);
+    return BlocBuilder<Bloc, Event, State>(
+      key: Ids.count2.key,
+      builder: (context, state, child) {
         return Center(
-          child: Text('${bloc.model.count2}'),
+          child: Text('${state.count2}'),
         );
       },
     );
@@ -59,7 +57,9 @@ class View extends StatelessWidget {
           children: [
             FloatingActionButton(
               heroTag: "btn1",
-              onPressed: () => bloc.add(const Increment(2)),
+              onPressed: () {
+                bloc.add(const Increment(2));
+              },
               child: const Icon(Icons.add),
             ),
             FloatingActionButton(
